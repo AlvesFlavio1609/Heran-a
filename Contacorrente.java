@@ -1,27 +1,31 @@
-public class Contacorrente  extends Conta{
-    private double chequeEspecial;
-    private double limitedeDepositos;
+public class Contacorrente  extends Conta {
+    protected double chequeEspecial;
+    protected double limitedeSaque;
 
 
-    public Contacorrente(int numero, int agencia, String banco, double saldo, double chequeEspecial, double limitedeDepositos) {
+    public Contacorrente(int numero, int agencia, String banco, double saldo, double chequeEspecial, double limitedeSaque) {
         super(numero, agencia, banco, saldo);
         this.chequeEspecial = chequeEspecial;
-        this.limitedeDepositos = limitedeDepositos;
+        this.limitedeSaque = saldo + chequeEspecial;
+
+
+
     }
 
+
+
+
+    public double getSaldo() {
+        return this.chequeEspecial;
+
+
+    }
     @Override
     public String toString() {
-        return "Contacorrente{" +
-                "chequeEspecial=" + chequeEspecial +
-                '}';
-    }
+        return "Seu limite de cheque especial é "+ chequeEspecial;
+                }
 
 
-    public double getSaldo(){
-        return this.chequeEspecial + saldo;
-
-
-    }
     @Override
     public double getDeposito() {
         return 20;
@@ -32,4 +36,8 @@ public class Contacorrente  extends Conta{
         return 5;
     }
 
+    public double getLimitedeSaque() {
+        return saldo + chequeEspecial;
+    }
 }
+

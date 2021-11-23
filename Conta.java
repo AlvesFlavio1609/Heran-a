@@ -6,6 +6,7 @@ public abstract class Conta {
     protected   double saldo;
     protected double deposito;
     protected int saques;
+    protected double limitedesaque;
 
     public int getNumero() {
         return numero;
@@ -21,6 +22,14 @@ public abstract class Conta {
 
     public void setAgencia(int agencia) {
         this.agencia = agencia;
+    }
+
+    public double getLimiteDesaque() {
+        return limitedesaque;
+    }
+
+    public void setLimiteDesaque(double limiteDesaque) {
+        this.limitedesaque = limiteDesaque;
     }
 
     public String getBanco() {
@@ -60,14 +69,15 @@ public abstract class Conta {
         this.agencia = agencia;
         this.banco = banco;
         this.saldo = saldo;
+
     }
 
     @Override
     public String toString() {
-        return "Conta{" +
-                "numero=" + numero +
-                ", agencia=" + agencia +
-                ", banco='" + banco + '\'' +
+        return  "Conta { "  +
+                " numero = "  +  numero  +
+                " ,  agencia = " + agencia +
+                " , banco = ' "  + banco + '\'' +
                 ", saldo=" + saldo +
                 '}';
     }
